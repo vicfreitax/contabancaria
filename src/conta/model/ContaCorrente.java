@@ -28,6 +28,16 @@ public class ContaCorrente extends Conta {
 	
 	@Override //Override = Sobrescrever - reforça para o java que o que vai acontecer vai sobrescrever
 	
+	public boolean sacar(float valor) {
+		if(this.getSaldo()+this.getLimite()<valor) {
+			System.out.println("\n Saldo Insuficiente!");
+			return false;
+		}
+		this.setSaldo(this.getSaldo() - valor);
+		return true;
+	}
+	
+	@Override
 	public void visualizar () {
 		super.visualizar();
 		System.out.println(" Limite de Crédito: " + this.limite);
